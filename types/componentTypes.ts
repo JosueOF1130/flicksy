@@ -1,0 +1,1 @@
+export type TextVariant = 'subtext' | 'small' | 'body' | 'title' | 'heading' | 'display';
