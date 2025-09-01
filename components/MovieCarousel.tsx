@@ -6,10 +6,10 @@ import { router } from "expo-router";
 
 export default function MovieCarousel({ movies, title }: any) {
 
-    function moviePressed(id: number) {
+    function moviePressed(id: number, movie: any) {
         router.push({
             pathname: '/details/[id]',
-            params: { id: id.toString(), backText: 'Home', },
+            params: { id: id.toString(), backText: 'Home', movie: movie },
         });
 
     }
@@ -29,7 +29,7 @@ export default function MovieCarousel({ movies, title }: any) {
                     renderItem={({ item }) => (
                         <Pressable onPress={() => {
                             console.log(item.id);
-                            moviePressed(item.id);
+                            moviePressed(item.id, item);
 
                         }}>
                             <View style={{ marginRight: 12, width: 120 }}>

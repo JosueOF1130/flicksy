@@ -26,3 +26,17 @@ export async function FetchMovieLists(listType: MovieListTypes) {
     }
 
 }
+
+export async function FetchMovieById(id: string) {
+    const url = `https://api.themoviedb.org/3/movie/${id}?language=en-US`;
+
+    try {
+        const response = await fetch(url, options);
+
+        const json = await response.json();
+
+        return json;
+    } catch(error: any) {
+        return error;
+    }
+}

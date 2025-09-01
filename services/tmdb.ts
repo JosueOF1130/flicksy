@@ -1,5 +1,5 @@
 
-import { FetchMovieLists } from "@/api/tmdb";
+import { FetchMovieById, FetchMovieLists } from "@/api/tmdb";
 import { MovieListTypes } from "@/types/apiTypes";
 
 
@@ -9,3 +9,9 @@ export async function GetMovieList(listType: MovieListTypes) {
     return movies;
 }
 
+
+
+export async function GetMovieById(id: string) {
+    const movie = await FetchMovieById(id);
+    return movie;
+}
