@@ -40,3 +40,17 @@ export async function FetchMovieById(id: string) {
         return error;
     }
 }
+
+export async function FetchMovieDetailsById(id: string) {
+    const url = `https://api.themoviedb.org/3/movie/${id}?append_to_response=videos%2C%20watch_providers%2C%20similar&language=en-US`;
+    try {
+        const response = await fetch(url, options);
+
+        const json = await response.json();
+        
+        return json;
+
+    }catch(error: any) {
+        return error;
+    }
+}
