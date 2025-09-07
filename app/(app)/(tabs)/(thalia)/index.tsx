@@ -6,7 +6,7 @@ export default function SearchScreen() {
     return (
         <>
             <ThemedView>
-                <AppText variant="display">Search</AppText>
+                <AppText variant="display">Thalia</AppText>
             </ThemedView>
         </>
     );

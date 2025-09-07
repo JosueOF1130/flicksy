@@ -30,10 +30,10 @@ export default function TabsLayout() {
                     <Ionicons name={focused ? 'home' : 'home-outline'} size={24} color={color} />
                 ),
             }} />
-            <Tabs.Screen name="(search)" options={{
+            <Tabs.Screen name="(thalia)" options={{
                 headerShown: false,
                 tabBarIcon: ({ color, focused }) => (
-                    <Ionicons name={focused ? 'search' : 'search-outline'} size={24} color={color} />
+                    <Ionicons name={focused ? 'rocket' : 'rocket-outline'} size={24} color={color} />
                 ),
             }} />
             <Tabs.Screen name="(account)" options={{
