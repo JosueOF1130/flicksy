@@ -527,7 +527,8 @@ const themeColors: AppTheme = {
     },
 };
 
-export const heartColor = "#c83535ff";
+export const heartColor =  "#c83535ff";
 
+export const starColor =  "#FFD700";
 
 export default themeColors;
