@@ -1,98 +1,36 @@
+// Starting new for flicksy
 
+import { get, ref, remove, set } from "firebase/database";
 import { database } from "./firebase";
+import { SavedMovieType } from "@/types/movieTypes";
+import { DBResult } from "@/types/promiseTypes"
 
-import { get, onValue, push, ref, set, update } from "firebase/database";
-
-import type { ProjectDataType, ProjectsDataType } from "@/types/projectType";
-
-type DBSuccess = { success: true };
-type DBError = { success: false; errorMessage: string; };
-
-type DBResult = DBSuccess | DBError;
-
-export async function saveProject(uid: string, projectData: ProjectDataType): Promise<DBResult> {
+export async function SaveMovieDB(uid: string, movie: SavedMovieType): Promise<DBResult> {
     try {
-        const projectsRef = ref(database, `users/${uid}/projects`);
-        const newProjectRef = push(projectsRef);
-        await set(newProjectRef, { ...projectData, createdAt: Date.now() });
-        return { success: true };
+        const savedMoviesRef = ref(database, `users/${uid}/savedMovies/${movie.mid}`);
+        await set(savedMoviesRef, movie);
+        return { success: true}
     } catch (error: any) {
-        return ({
-            success: false,
-            errorMessage: error?.message ?? "Failed to save project",
-        });
+        return { success: false, error: error.message}
     }
 }
 
-export function listenToUserProjects(uid: string, callback: (result: ProjectsDataType[]) => void): () => void {
-
-    const projectsRef = ref(database, `users/${uid}/projects`);
-    const unsubcribeFromProjects = onValue(projectsRef, (snapshot) => {
-        if (!snapshot.exists()) {
-            callback([]);
-            return;
-        }
-
-        const projectsData = snapshot.val();
-
-
-        const projects: ProjectsDataType[] = Object.keys(projectsData).map((key) => ({
-            id: key,
-            ...projectsData[key],
-        }));
-
-        callback(projects);
-    });
-    return unsubcribeFromProjects;
-}
-
-
-
-type GetProjectResultType = ProjectDataType | DBError | [];
-
-
-export async function getProject(uid: string, projectId: string): Promise<GetProjectResultType> {
+export async function UnSaveMovieDB(uid: string, mid: string): Promise<DBResult> {
     try {
-
-        const projectRef = ref(database, `users/${uid}/projects/${projectId}`);
-
-        const snapshot = await get(projectRef);
-
-        if (snapshot.exists()) {
-
-            return snapshot.val();
-
-        } else {
-
-            return []
-
-        }
-
-    } catch (error: any) {
-
-        return {
-
-            success: false, 
-            errorMessage: error?.message ?? "Failed to fetch project data"
-        
-        }
-
-    }
-}
-
-
-
-
-export async function updateProject(uid: string, projectId: string, data: ProjectDataType): Promise<DBResult> {
-    try {
-        const projectRef = ref(database, `users/${uid}/projects/${projectId}`);
-        await update(projectRef, data);
+        const movieRef = ref(database, `users/${uid}/savedMovies/${mid}`);
+        await remove(movieRef);
         return { success: true }
     } catch (error: any) {
-        return {
-            success: false,
-            errorMessage: error?.message ?? "Failed to update project. Try again"
-        }
+        return { success: false, error: error.message }
     }
 }
 
+export async function IsMovieSavedDB(uid: string, mid: string): Promise<boolean> {
+    try {
+        const movieRef = ref(database, `users/${uid}/savedMovies/${mid}`);
+        const snapShot = await get(movieRef);
+        return snapShot.exists();
+    } catch(error: any) {
+        return false;
+    }
+}
