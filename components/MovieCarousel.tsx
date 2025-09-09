@@ -2,7 +2,6 @@ import { FlatList, Pressable, View } from "react-native";
 import AppText from "./AppText";
 import { Image } from "expo-image";
 import { router } from "expo-router";
-import { useState } from "react";
 
 
 export default function MovieCarousel({ movies, title }: any) {
