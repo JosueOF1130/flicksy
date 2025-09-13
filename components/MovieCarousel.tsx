@@ -9,7 +9,7 @@ export default function MovieCarousel({ movies, title }: any) {
     function moviePressed(id: number) {
         router.push({
             pathname: '/details/[id]',
-            params: { id: id.toString(), backText: 'Home'},
+            params: { id: id.toString(), backText: 'Home', from: "/(app)/(tabs)/(home)"},
         });
 
     }
@@ -28,7 +28,6 @@ export default function MovieCarousel({ movies, title }: any) {
                     contentContainerStyle={{ paddingTop: 15 }}
                     renderItem={({ item }) => (
                         <Pressable onPress={() => {
-                            console.log(item.id);
                             moviePressed(item.id);
                         }}
                         style={{marginLeft: 15}}

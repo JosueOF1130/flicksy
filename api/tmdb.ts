@@ -21,7 +21,7 @@ export async function FetchMovieLists(listType: MovieListTypes) {
         const json = await response.json();
 
         return json;
-    } catch(error: any) {
+    } catch (error: any) {
         return error;
     }
 
@@ -36,21 +36,27 @@ export async function FetchMovieById(id: string) {
         const json = await response.json();
 
         return json;
-    } catch(error: any) {
+    } catch (error: any) {
         return error;
     }
 }
 
 export async function FetchMovieDetailsById(id: string) {
-    const url = `https://api.themoviedb.org/3/movie/${id}?append_to_response=videos%2C%20watch_providers%2C%20similar&language=en-US`;
+    const url = `https://api.themoviedb.org/3/movie/${id}?append_to_response=videos%2Cwatch%2Fproviders%2Csimilar&language=en-US`;
+
     try {
         const response = await fetch(url, options);
 
         const json = await response.json();
-        
+
+        if (json["watch/providers"]) {
+            json.watch_providers = json["watch/providers"];
+            delete json["watch/providers"];
+        }
+
         return json;
 
-    }catch(error: any) {
+    } catch (error: any) {
         return error;
     }
 }

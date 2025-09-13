@@ -23,7 +23,7 @@ async function signInUser(email: string, password: string): Promise<AuthResult> 
     }
 }
 
-async function signUpUser(email: string, password: string, username: string): Promise<AuthResult> {
+async function signUpUser(email: string, password: string, username: string, from: "admin" | "student"): Promise<AuthResult> {
     try {
         const credentials = await createUserWithEmailAndPassword(auth, email, password);
         const user = credentials.user;
@@ -47,6 +47,7 @@ async function signUpUser(email: string, password: string, username: string): Pr
 function onUserStateChange(callback: (user: User | null) => void) {
     return onAuthStateChanged(auth, callback);
 }
+
 
 
 async function signOutUser(): Promise<void | AuthError>{

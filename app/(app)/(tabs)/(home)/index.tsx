@@ -27,17 +27,14 @@ export default function HomeScreen() {
             const responseUpcoming = await GetMovieList("upcoming");
 
 
-            setPopularMovies(responsePopular.results || []);
+            setUpcomingMovies(responseUpcoming.results || []);
             setNowPlayingMovies(responseNowPlaying.results || []);
+            setPopularMovies(responsePopular.results || []);
             setTopRatedMovies(responseTopRated.results || []);
-            setUpcomingMovies(responseNowPlaying.results || []);
 
         }
         getMovies();
     }, []);
-
-    useEffect(() => {
-    }, [popularMovies, nowPlayingMovies]);
 
 
     return (
