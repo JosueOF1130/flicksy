@@ -11,6 +11,8 @@ export default function ThemedView({ children }: PropsWithChildren) {
             flex: 1,
             width: "100%",
             backgroundColor: colors.background.base,
+            paddingTop: 45,
+            paddingHorizontal: 15
         }
     })
 

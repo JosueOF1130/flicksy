@@ -15,7 +15,6 @@ interface Genre {
     name: string;
 }
 
-// Define the new types for the additional data
 interface Video {
   id: string;
   iso_639_1: string;
@@ -52,10 +51,35 @@ interface SimilarMovie {
   release_date: string;
 }
 
-// Extend the original Movie interface
+interface MovieCredits {
+  cast: CastMember[]
+}
+
+interface CastMember {
+  id: number;
+  name: string;
+  profile_path: string | null;
+  character: string;
+  known_for_department: string;
+  order: number;
+}
+
 export interface MovieDetails extends Movie {
   videos?: VideoResponse;
   watch_providers?: WatchProvidersResponse;
   similar_movies?: SimilarMovie[];
-  // you can add other new fields returned by the API here
+  credits?: MovieCredits;
+  certification?: string;
+}
+export interface ReleaseDateInfo {
+  certification: string;
+  iso_639_1: string;
+  note: string;
+  release_date: string;
+  type: number;
+}
+
+export interface ReleaseDatesResult {
+  iso_3166_1: string;
+  release_dates: ReleaseDateInfo[];
 }

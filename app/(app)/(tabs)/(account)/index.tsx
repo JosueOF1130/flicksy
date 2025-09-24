@@ -1,6 +1,6 @@
-import AppIconButton from "@/components/AppIconButton";
-import AppText from "@/components/AppText";
-import ThemedView from "@/components/ThemedView";
+import AppIconButton from "@/components/app/AppIconButton";
+import AppText from "@/components/app/AppText";
+import ThemedView from "@/components/views/ThemedView";
 import { useAuth } from "@/context/authContext";
 import { useTheme } from "@/context/themeContext";
 import { GetSavedMoviesDB, subscribeToSavedMoviesDB } from "@/firebase/firebaseDatabase";

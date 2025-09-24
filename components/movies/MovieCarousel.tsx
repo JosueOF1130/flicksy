@@ -1,5 +1,5 @@
 import { FlatList, Pressable, View } from "react-native";
-import AppText from "./AppText";
+import AppText from "../app/AppText";
 import { Image } from "expo-image";
 import { router } from "expo-router";
 

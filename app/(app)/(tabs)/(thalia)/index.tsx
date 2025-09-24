@@ -1,5 +1,5 @@
-import AppText from "@/components/AppText";
-import ThemedView from "@/components/ThemedView";
+import AppText from "@/components/app/AppText";
+import ThemedView from "@/components/views/ThemedView";
 
 
 export default function SearchScreen() {

@@ -1,6 +1,6 @@
-import AppText from "@/components/AppText";
-import MovieCarousel from "@/components/MovieCarousel";
-import ThemedView from "@/components/ThemedView";
+import AppText from "@/components/app/AppText";
+import MovieCarousel from "@/components/movies/MovieCarousel";
+import ThemedView from "@/components/views/ThemedView";
 import { useTheme } from "@/context/themeContext";
 import { GetMovieList } from "@/services/tmdb";
 import { Ionicons } from "@expo/vector-icons";

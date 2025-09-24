@@ -2,7 +2,7 @@
 
 
 
-import AppText from "@/components/AppText";
+import AppText from "@/components/app/AppText";
 import { Ionicons } from "@expo/vector-icons";
 import React, { useEffect, useRef } from "react";
 import { Animated, Easing, StyleSheet, View } from "react-native";

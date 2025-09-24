@@ -42,17 +42,19 @@ export async function FetchMovieById(id: string) {
 }
 
 export async function FetchMovieDetailsById(id: string) {
-    const url = `https://api.themoviedb.org/3/movie/${id}?append_to_response=videos%2Cwatch%2Fproviders%2Csimilar&language=en-US`;
+    const url = `https://api.themoviedb.org/3/movie/${id}?append_to_response=credits,watch/providers,similiar,videos,release_dates&language=en-US`;
 
     try {
         const response = await fetch(url, options);
 
         const json = await response.json();
 
+
         if (json["watch/providers"]) {
             json.watch_providers = json["watch/providers"];
             delete json["watch/providers"];
         }
+
 
         return json;
 

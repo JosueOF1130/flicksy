@@ -531,4 +531,6 @@ export const heartColor =  "#c83535ff";
 
 export const starColor =  "#FFD700";
 
+export const errorColor = "#a12929ff";
+
 export default themeColors;
