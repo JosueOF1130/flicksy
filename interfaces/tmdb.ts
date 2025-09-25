@@ -15,7 +15,7 @@ interface Genre {
     name: string;
 }
 
-interface Video {
+export interface Video {
   id: string;
   iso_639_1: string;
   iso_3166_1: string;
@@ -51,6 +51,14 @@ interface SimilarMovie {
   release_date: string;
 }
 
+export interface SimilarMoviesResponse {
+  page: number;
+  results: SimilarMovie[];
+  total_pages: number;
+  total_results: number;
+}
+
+
 interface MovieCredits {
   cast: CastMember[]
 }
@@ -67,7 +75,7 @@ interface CastMember {
 export interface MovieDetails extends Movie {
   videos?: VideoResponse;
   watch_providers?: WatchProvidersResponse;
-  similar_movies?: SimilarMovie[];
+  similar?: SimilarMoviesResponse;
   credits?: MovieCredits;
   certification?: string;
 }
