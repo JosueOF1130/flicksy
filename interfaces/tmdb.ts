@@ -51,6 +51,14 @@ interface SimilarMovie {
   release_date: string;
 }
 
+interface SimilarMoviesResponse {
+  page: number;
+  results: SimilarMovie[];
+  total_pages: number;
+  total_results: number;
+}
+
+
 interface MovieCredits {
   cast: CastMember[]
 }
@@ -67,7 +75,7 @@ interface CastMember {
 export interface MovieDetails extends Movie {
   videos?: VideoResponse;
   watch_providers?: WatchProvidersResponse;
-  similar_movies?: SimilarMovie[];
+  similar?: SimilarMoviesResponse;
   credits?: MovieCredits;
   certification?: string;
 }
