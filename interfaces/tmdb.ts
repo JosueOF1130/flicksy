@@ -15,7 +15,7 @@ interface Genre {
     name: string;
 }
 
-interface Video {
+export interface Video {
   id: string;
   iso_639_1: string;
   iso_3166_1: string;
@@ -51,7 +51,11 @@ interface SimilarMovie {
   release_date: string;
 }
 
+<<<<<<< HEAD
 interface SimilarMoviesResponse {
+=======
+export interface SimilarMoviesResponse {
+>>>>>>> 5c94f84224c3ccbe70f9bcc6d2cbf732cffb3c0c
   page: number;
   results: SimilarMovie[];
   total_pages: number;

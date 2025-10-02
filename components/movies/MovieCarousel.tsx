@@ -1,15 +1,15 @@
-import { FlatList, Pressable, View } from "react-native";
-import AppText from "../app/AppText";
 import { Image } from "expo-image";
 import { router } from "expo-router";
+import { FlatList, Pressable, View } from "react-native";
+import AppText from "../app/AppText";
 
 
-export default function MovieCarousel({ movies, title }: any) {
+export default function MovieCarousel({ movies, title, back =" Home" }: any) {
 
     function moviePressed(id: number) {
         router.push({
             pathname: '/details/[id]',
-            params: { id: id.toString(), backText: 'Home', from: "/(app)/(tabs)/(home)"},
+            params: { id: id.toString(), backText: back, from: "/(app)/(tabs)/(home)"},
         });
 
     }

@@ -6,15 +6,30 @@ import { Ionicons } from "@expo/vector-icons";
 import { router, Stack, useLocalSearchParams } from "expo-router";
 import { useEffect, useState } from "react";
 
+import CastCarousel from "@/components/movies/CastCarousel";
+import MovieCarousel from "@/components/movies/MovieCarousel";
+import TrailerCarousel from "@/components/movies/TrailerCarousel";
+import WatchProviders from "@/components/movies/WatchProviders";
+import { useAuth } from "@/context/authContext";
+import { MovieDetails } from "@/interfaces/tmdb";
+import { IsMovieSaved, SaveMovie, UnSaveMovie } from "@/services/firebase";
+import { heartColor, starColor } from "@/theme/colors";
+import { TabRoute } from "@/types/componentTypes";
+import { SavedMovieType } from "@/types/movieTypes";
+import { Image } from "expo-image";
 import {
     ActivityIndicator,
+<<<<<<< HEAD
     FlatList,
     Linking,
+=======
+    Dimensions,
+>>>>>>> 5c94f84224c3ccbe70f9bcc6d2cbf732cffb3c0c
     Pressable,
     ScrollView,
-    Text,
-    View,
+    View
 } from "react-native";
+<<<<<<< HEAD
 import { MovieDetails } from "@/interfaces/tmdb";
 import { Image } from "expo-image";
 import { errorColor, heartColor, starColor } from "@/theme/colors";
@@ -26,6 +41,8 @@ import { TabRoute } from "@/types/componentTypes";
 import MovieCarousel from "@/components/movies/MovieCarousel";
 
 
+=======
+>>>>>>> 5c94f84224c3ccbe70f9bcc6d2cbf732cffb3c0c
 
 export default function MovieDetailsScreen() {
     const { colors } = useTheme();
@@ -37,7 +54,13 @@ export default function MovieDetailsScreen() {
         from?: TabRoute;
     }>();
     const [heartFilled, setHeartFilled] = useState<boolean>(false);
-    const YOuTUBE_BASE_URL: string = "https://www.youtube.com/watch?v=";
+
+
+    const YT_BASE_URL: string = "https://www.youtube.com/watch?v=";
+    const POSTER_BASE_URL: string = "https://image.tmdb.org/t/p/w500";
+
+
+
     const [movie, setMovie] = useState<MovieDetails | null>(null);
     const [loading, setLoading] = useState(true);
     const rating = Math.round(((movie?.vote_average ?? 0) / 2) * 2) / 2;
@@ -46,6 +69,8 @@ export default function MovieDetailsScreen() {
 
     const region = movie?.watch_providers?.results?.["US"];
     const videos = movie?.videos?.results;
+
+
 
     const rentProviders = region?.rent || [];
     const buyProviders = region?.buy || [];
@@ -56,7 +81,6 @@ export default function MovieDetailsScreen() {
     const sortedCast = cast?.slice(0, 10).sort((a, b) => a.order - b.order) || [];
 
     const similarMovies = movie?.similar;
-    console.log(similarMovies);
 
 
 
@@ -99,7 +123,7 @@ export default function MovieDetailsScreen() {
                                 title: movie.title,
                                 genres: movie.genres,
                                 releaseYear: Number(movie.release_date.slice(0, 4)),
-                                poster: `https://image.tmdb.org/t/p/w500${movie.poster_path}`
+                                poster: POSTER_BASE_URL + movie.poster_path
 
                             }
                             await SaveMovie(user.uid, movieOb);
@@ -117,6 +141,8 @@ export default function MovieDetailsScreen() {
     }
 
 
+
+
     function starRating() {
         for (let i = 1; i <= 5; i++) {
             if (rating >= i) {
@@ -131,16 +157,8 @@ export default function MovieDetailsScreen() {
 
     }
 
-    function RenderProviders() {
-        if (flatrateProviders.length === 0 && rentProviders.length === 0 && buyProviders.length === 0) {
-            return (
-                <AppText style={{ color: errorColor, marginVertical: 10 }}>Not avalible on demand yet</AppText>
-            );
-        }
-        return (
-            <View style={{ marginVertical: 15 }}>
-                <AppText variant="title" >Watch Providers</AppText>
 
+<<<<<<< HEAD
                 {flatrateProviders.length > 0 && (
                     <>
                         <AppText variant="small" bold style={{ marginVertical: 10 }}>Stream</AppText>
@@ -341,6 +359,9 @@ export default function MovieDetailsScreen() {
             </View>
         );
     }
+=======
+
+>>>>>>> 5c94f84224c3ccbe70f9bcc6d2cbf732cffb3c0c
 
 
     return (
@@ -362,10 +383,16 @@ export default function MovieDetailsScreen() {
                         // movie exists
                         <ScrollView contentContainerStyle={{ alignItems: "center", paddingBottom: 100 }} showsVerticalScrollIndicator={false}>
 
+<<<<<<< HEAD
                             <View style={{ width: "100%", maxWidth: 900 }}>
                                 <Image
                                     source={{ uri: `https://image.tmdb.org/t/p/original${movie.poster_path}` }}
                                     style={{ width: 180, height: 260, borderRadius: 7, marginHorizontal: "auto" }}
+=======
+                            <Image
+                                source={{ uri: POSTER_BASE_URL + movie.poster_path }}
+                                style={{ width: 180, height: 260, borderRadius: 7, marginHorizontal: "auto" }}
+>>>>>>> 5c94f84224c3ccbe70f9bcc6d2cbf732cffb3c0c
 
                                 />
                                 <AppText variant="display" center>{movie.title}</AppText>
@@ -404,6 +431,20 @@ export default function MovieDetailsScreen() {
                                 {/* Simlar Movies */}
                                 {RenderSimilarMovies()}
                             </View>
+<<<<<<< HEAD
+=======
+                            <View>
+                                <AppText variant="title" style={{ marginVertical: 10 }}>Synopsis:</AppText>
+                                <AppText textBreakStrategy="simple">{movie.overview}</AppText>
+                            </View>
+                            {/* Watch Providers */}
+                            <WatchProviders rent={rentProviders} buy={buyProviders} stream={flatrateProviders} />
+                            {/* Cast */}
+                            {sortedCast.length > 0 && <CastCarousel cast={sortedCast} />}
+                            {/* Trailers */}
+                            {trailers && <TrailerCarousel trailers={trailers} />}
+                            {similarMovies && similarMovies?.results.length > 0 && (<MovieCarousel movies={similarMovies.results} back="Movie" title="You may also like" />)}
+>>>>>>> 5c94f84224c3ccbe70f9bcc6d2cbf732cffb3c0c
                         </ScrollView>
                     )
                     :
