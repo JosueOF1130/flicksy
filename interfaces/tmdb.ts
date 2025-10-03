@@ -51,11 +51,7 @@ interface SimilarMovie {
   release_date: string;
 }
 
-<<<<<<< HEAD
-interface SimilarMoviesResponse {
-=======
 export interface SimilarMoviesResponse {
->>>>>>> 5c94f84224c3ccbe70f9bcc6d2cbf732cffb3c0c
   page: number;
   results: SimilarMovie[];
   total_pages: number;

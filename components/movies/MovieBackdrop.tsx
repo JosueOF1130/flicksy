@@ -3,12 +3,12 @@ import { Image } from "expo-image";
 import { LinearGradient } from "expo-linear-gradient";
 import { StyleSheet, View } from "react-native";
 
-export function MovieBackdrop({ movie }: { movie: any }) {
+export function MovieBackdrop({ path }: { path: any }) {
   return (
     <View style={StyleSheet.absoluteFill}>
       <Image
-        source={{ uri: `https://image.tmdb.org/t/p/w1280${movie.backdrop_path}` }}
-        style={{ width: "100%", height: "80%"}}
+        source={{ uri: `https://image.tmdb.org/t/p/original${path}` }}
+        style={{ width: 180, height: 260}}
         contentFit="cover"
         // transition={900}
       />
