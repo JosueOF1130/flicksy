@@ -6,8 +6,7 @@ The app is designed to support both **mobile** and **web** platforms.
 ---
 
 ## Live Demo
-👉 [Live Version of Flicksy](https://flick-sy.netlify.app/)  
-*(replace `#` with your hosted link once available)*
+👉 [Live Version of Flicksy](https://flick-sy.netlify.app/)
 
 ---
 
