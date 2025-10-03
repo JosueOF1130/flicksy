@@ -1,50 +1,39 @@
-# Welcome to your Expo app 👋
+# Flicksy
 
-This is an [Expo](https://expo.dev) project created with [`create-expo-app`](https://www.npmjs.com/package/create-expo-app).
+Flicksy is a movie discovery app built with **React Native** (Expo) that lets you explore movie details, casts, and more using data from [The Movie Database (TMDB)](https://www.themoviedb.org/).  
+The app is designed to support both **mobile** and **web** platforms.
 
-## Get started
+---
 
-1. Install dependencies
+## Live Demo
+👉 [Live Version of Flicksy](https://flick-sy.netlify.app/)  
+*(replace `#` with your hosted link once available)*
 
-   ```bash
-   npm install
-   ```
+---
 
-2. Start the app
+## Features
+- Search for movies with instant results
+- View detailed movie information (overview, release date, runtime, rating, genres)
+- Browse cast members with images and character names
+- Save / like movies to your personal library
+- Theming support (light/dark mode)
+- Cross-platform: works on both mobile (Expo/React Native) and web (React Native Web)
+### AI-Powered Recommendations  
 
-   ```bash
-   npx expo start
-   ```
+Flicksy will use **AI** to curate personalized movie recommendations by analyzing a user’s liked movies and their associated genres.  
+The recommendation engine will learn from viewing patterns, compare them against TMDB’s dataset, and suggest movies that align with both the user’s preferences and trending titles.  
 
-In the output, you'll find options to open the app in a
+This ensures every user gets a **tailored discovery experience** instead of generic results.
 
-- [development build](https://docs.expo.dev/develop/development-builds/introduction/)
-- [Android emulator](https://docs.expo.dev/workflow/android-studio-emulator/)
-- [iOS simulator](https://docs.expo.dev/workflow/ios-simulator/)
-- [Expo Go](https://expo.dev/go), a limited sandbox for trying out app development with Expo
+---
 
-You can start developing by editing the files inside the **app** directory. This project uses [file-based routing](https://docs.expo.dev/router/introduction).
+## Tech Stack
+- **React Native** with Expo
+- **React Native Web** for cross-platform support
+- **Expo Router** for navigation
+- **TypeScript** for type safety
+- **TMDB API** for movie data
+- **Custom Components** (AppText, ThemedView, etc.)
+- **Firebase (optional)** for authentication & saving user data (if included)
 
-## Get a fresh project
-
-When you're ready, run:
-
-```bash
-npm run reset-project
-```
-
-This command will move the starter code to the **app-example** directory and create a blank **app** directory where you can start developing.
-
-## Learn more
-
-To learn more about developing your project with Expo, look at the following resources:
-
-- [Expo documentation](https://docs.expo.dev/): Learn fundamentals, or go into advanced topics with our [guides](https://docs.expo.dev/guides).
-- [Learn Expo tutorial](https://docs.expo.dev/tutorial/introduction/): Follow a step-by-step tutorial where you'll create a project that runs on Android, iOS, and the web.
-
-## Join the community
-
-Join our community of developers creating universal apps.
-
-- [Expo on GitHub](https://github.com/expo/expo): View our open source platform and contribute.
-- [Discord community](https://chat.expo.dev): Chat with Expo users and ask questions.
+---
