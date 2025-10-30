@@ -27,20 +27,6 @@ export async function FetchMovieLists(listType: MovieListTypes) {
 
 }
 
-async function FetchMovieById(id: string) {
-    const url = `https://api.themoviedb.org/3/movie/${id}?language=en-US`;
-
-    try {
-        const response = await fetch(url, options);
-
-        const json = await response.json();
-
-        return json;
-    } catch (error: any) {
-        return error;
-    }
-}
-
 export async function FetchMovieDetailsById(id: string) {
     const url = `https://api.themoviedb.org/3/movie/${id}?append_to_response=credits,watch/providers,similar,videos,release_dates&language=en-US`;
 
@@ -58,6 +44,19 @@ export async function FetchMovieDetailsById(id: string) {
         console.warn("API: ", json);
         return json;
 
+    } catch (error: any) {
+        return error;
+    }
+}
+
+export async function FetchSearchedMovie(movie: string) {
+    const url = `https://api.themoviedb.org/3/search/movie?query=/${movie}&include_adult=false&language=en-US&page=1`;
+
+    try {
+        const response = await fetch(url, options);
+        const json = await response.json();
+        console.log(json);
+        return json;
     } catch (error: any) {
         return error;
     }

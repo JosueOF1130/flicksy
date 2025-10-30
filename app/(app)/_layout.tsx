@@ -2,7 +2,7 @@ import { useTheme } from "@/context/themeContext";
 import { Stack } from "expo-router";
 import { StatusBar } from "expo-status-bar"
 
-export default function AppEntry() {
+export default function AppLayout() {
 
     const { theme } = useTheme();
 

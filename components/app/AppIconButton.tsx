@@ -7,7 +7,7 @@ import AppText from "./AppText";
 
 
 
-export default function AppIconButton({ onPress, children, variant = "body", buttonStyle, textStyle, name, size = 24, position = "left", color }: AppIconButtonProps) {
+export default function AppIconButton({ onPress, children = "", variant = "body", buttonStyle, textStyle, name, size = 24, position = "left", color }: AppIconButtonProps) {
 
     const { colors } = useTheme();
 

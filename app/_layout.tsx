@@ -1,5 +1,5 @@
 
-import { Slot } from 'expo-router';
+import { Slot, Stack } from 'expo-router';
 import { AuthProvider } from '../context/authContext';
 import { ThemeProvider } from '@/context/themeContext';
 

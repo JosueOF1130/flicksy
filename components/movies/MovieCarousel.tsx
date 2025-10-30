@@ -4,12 +4,12 @@ import { FlatList, Pressable, View } from "react-native";
 import AppText from "../app/AppText";
 
 
-export default function MovieCarousel({ movies, title, back =" Home" }: any) {
+export default function MovieCarousel({ movies, title }: any) {
 
     function moviePressed(id: number) {
         router.push({
             pathname: '/details/[id]',
-            params: { id: id.toString(), backText: back, from: "/(app)/(tabs)/(home)"},
+            params: { id: id.toString()},
         });
 
     }

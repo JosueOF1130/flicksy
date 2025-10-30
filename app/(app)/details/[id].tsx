@@ -31,10 +31,8 @@ export default function MovieDetailsScreen() {
     const { colors } = useTheme();
     const { user } = useAuth();
 
-    const { id, backText, from } = useLocalSearchParams<{
+    const { id } = useLocalSearchParams<{
         id: string;
-        backText?: string;
-        from?: TabRoute;
     }>();
     const [heartFilled, setHeartFilled] = useState<boolean>(false);
     const YOuTUBE_BASE_URL: string = "https://www.youtube.com/watch?v=";
@@ -56,7 +54,6 @@ export default function MovieDetailsScreen() {
     const sortedCast = cast?.slice(0, 10).sort((a, b) => a.order - b.order) || [];
 
     const similarMovies = movie?.similar;
-    console.log(similarMovies);
 
 
 
@@ -80,11 +77,7 @@ export default function MovieDetailsScreen() {
 
     }, [id]);
     function goBack() {
-        if (from) {
-            router.push(from);
-        } else {
-            router.replace("/(app)/(tabs)/(home)");
-        }
+        router.back();
     }
     async function toggleSaveMovie() {
         setHeartFilled((prev) => {
@@ -349,7 +342,7 @@ export default function MovieDetailsScreen() {
             <Stack.Screen options={{ headerShown: false, gestureEnabled: true, fullScreenGestureEnabled: true }} />
             <Pressable style={{ flexDirection: "row", alignItems: "center", marginVertical: 15 }} onPress={goBack}>
                 <Ionicons name="arrow-back" size={24} color={colors.text.base} />
-                <AppText style={{ marginLeft: 5 }} variant="title">{backText}</AppText>
+                <AppText style={{ marginLeft: 5 }} variant="title">{}</AppText>
             </Pressable>
             {loading ? (
                 // loading indicator
