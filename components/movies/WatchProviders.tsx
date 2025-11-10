@@ -31,7 +31,7 @@ export default function WatchProviders({rent, buy, stream}: WatchProvidersInterf
                             showsHorizontalScrollIndicator={false}
                             renderItem={({ item }) => (
                                 <Image
-                                    source={{ uri: `https://image.tmdb.org/t/p/w45${item.logo_path}` }}
+                                    source={{ uri: `https://image.tmdb.org/t/p/original${item.logo_path}` }}
                                     style={{
                                         width: 50,
                                         height: 50,
@@ -57,7 +57,7 @@ export default function WatchProviders({rent, buy, stream}: WatchProvidersInterf
                             showsHorizontalScrollIndicator={false}
                             renderItem={({ item }) => (
                                 <Image
-                                    source={{ uri: `https://image.tmdb.org/t/p/w45${item.logo_path}` }}
+                                    source={{ uri: `https://image.tmdb.org/t/p/original${item.logo_path}` }}
                                     style={{
                                         width: 50,
                                         height: 50,
@@ -83,7 +83,7 @@ export default function WatchProviders({rent, buy, stream}: WatchProvidersInterf
                             showsHorizontalScrollIndicator={false}
                             renderItem={({ item }) => (
                                 <Image
-                                    source={{ uri: `https://image.tmdb.org/t/p/w45${item.logo_path}` }}
+                                    source={{ uri: `https://image.tmdb.org/t/p/original${item.logo_path}` }}
                                     style={{
                                         width: 50,
                                         height: 50,

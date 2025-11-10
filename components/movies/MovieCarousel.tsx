@@ -34,7 +34,7 @@ export default function MovieCarousel({ movies, title }: any) {
                         >
                             <View style={{ width: 122, justifyContent: "center", alignContent: "center"}}>
                                 <Image
-                                    source={{ uri: `https://image.tmdb.org/t/p/w500${item.poster_path}` }}
+                                    source={{ uri: `https://image.tmdb.org/t/p/original${item.poster_path}` }}
                                     style={{ width: 120, height: 180, borderRadius: 8}}
                                 />
                                 <AppText style={{ marginTop: 4 }}>

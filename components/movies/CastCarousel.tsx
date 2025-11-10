@@ -28,7 +28,7 @@ export default function CastCarousel({ cast }: CastListProps) {
           <View style={{ width: 100, alignItems: "center", marginRight: 10 }}>
             {item.profile_path ? (
               <Image
-                source={{ uri: `https://image.tmdb.org/t/p/w185${item.profile_path}` }}
+                source={{ uri: `https://image.tmdb.org/t/p/original${item.profile_path}` }}
                 style={{ width: 80, height: 120, borderRadius: 8, marginBottom: 5 }}
               />
             ) : (

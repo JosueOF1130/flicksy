@@ -1,6 +1,6 @@
 
 import { FetchMovieDetailsById, FetchMovieLists, FetchSearchedMovie } from "@/api/tmdb";
-import { ReleaseDatesResult } from "@/interfaces/tmdb";
+import { MovieDetails, ReleaseDatesResult, SearchMovie } from "@/interfaces/tmdb";
 import { MovieListTypes } from "@/types/apiTypes";
 
 
@@ -33,8 +33,10 @@ export async function GetMovieDetailsById(id: string) {
     return movieToReturn;
 }
 
-export async function GetSearchedMovie(searchInput: string) {
-    const movie = await FetchSearchedMovie(searchInput);
+type SearchType = SearchMovie[] | { error: string}
 
+export async function GetSearchedMovie(searchInput: string): Promise<SearchType> {
+    const movie = await FetchSearchedMovie(searchInput);
     return movie;
+
 }
