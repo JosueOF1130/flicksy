@@ -15,7 +15,7 @@ const options = {
 
 export async function FetchMovieLists(listType: MovieListTypes) {
     const url = `https://api.themoviedb.org/3/movie/${listType}?language=en-US&page=1`;
-
+    
     try {
         const response = await fetch(url, options);
 
@@ -26,6 +26,20 @@ export async function FetchMovieLists(listType: MovieListTypes) {
         return error;
     }
 
+}
+
+export async function FetchMoviesByGenre(genre: string) {
+    const url = `https://api.themoviedb.org/3/discover/movie?language=en-US&page=1&with_genres=${genre}`
+
+    try {
+        const response = await fetch(url, options);
+
+        const json = await response.json();
+
+        return json;
+    } catch(error: any) {
+        return error;
+    }
 }
 
 export async function FetchMovieDetailsById(id: string) {

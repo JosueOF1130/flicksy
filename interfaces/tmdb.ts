@@ -112,7 +112,7 @@ export interface SearchMovie {
 
 export type MovieSearchResponse = {
   page: number;
-  results: SearchMovie[];
+  results: SearchMovie [];
   total_pages: number;
   total_results: number;
 };

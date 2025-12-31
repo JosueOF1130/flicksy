@@ -1,4 +1,3 @@
-import AppIconButton from "@/components/app/AppIconButton";
 import AppText from "@/components/app/AppText";
 import ThemedView from "@/components/views/ThemedView";
 import { useAuth } from "@/context/authContext";
@@ -9,7 +8,7 @@ import { Ionicons } from "@expo/vector-icons";
 import { Image } from "expo-image";
 import { router } from "expo-router";
 import { useEffect, useState } from "react";
-import { FlatList, Pressable, ScrollView, StyleSheet, View } from "react-native";
+import { Platform, Pressable, ScrollView, View } from "react-native";
 
 export default function AccountScreen() {
 
@@ -52,7 +51,7 @@ export default function AccountScreen() {
     return (
         <>
             <ThemedView>
-                <View style={{ paddingTop: 45, paddingHorizontal: 25, flex: 1 }}>
+                <View style={{ paddingTop: Platform.OS === "web" ? 0 : 45, paddingHorizontal: 25, flex: 1 }}>
                     <View style={{ gap: 20, flexDirection: "row", alignItems: "center", justifyContent: "space-between" }}>
                         <AppText variant="display">Account</AppText>
                         <Pressable onPress={() => {

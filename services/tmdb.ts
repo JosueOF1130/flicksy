@@ -1,6 +1,6 @@
 
-import { FetchMovieDetailsById, FetchMovieLists, FetchSearchedMovie } from "@/api/tmdb";
-import { MovieDetails, ReleaseDatesResult, SearchMovie } from "@/interfaces/tmdb";
+import { FetchMovieDetailsById, FetchMovieLists, FetchMoviesByGenre, FetchSearchedMovie } from "@/api/tmdb";
+import { ReleaseDatesResult, SearchMovie } from "@/interfaces/tmdb";
 import { MovieListTypes } from "@/types/apiTypes";
 
 
@@ -8,6 +8,13 @@ export async function GetMovieList(listType: MovieListTypes) {
     const movies = await FetchMovieLists(listType);
 
     return movies;
+}
+
+
+export async function GetMoviesByGenre(genre: string) {
+    const movies = await FetchMoviesByGenre(genre);
+
+    return movies; 
 }
 
 export async function GetMovieDetailsById(id: string) {
